@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'Cafeteria';
+  src: url('./assets/fonts/cafeteria-5.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-sans: 'Cafeteria', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-parchment-50: #fdfbf7;
+  --color-parchment-100: #f9f5ea;
+  --color-parchment-200: #f0e6cd;
+  --color-parchment-300: #e5d4a9;
+  --color-parchment-400: #d8be81;
+  --color-parchment-500: #cca55c;
+  --color-parchment-600: #c18e42;
+  --color-parchment-700: #a17038;
+  --color-parchment-800: #845a33;
+  --color-parchment-900: #6e4b2d;
+  --color-parchment-950: #3f2816;
+
+  --color-military: #ef4444; /* red-500 */
+  --color-treasury: #eab308; /* yellow-500 */
+  --color-wonder: #a8a29e; /* stone-400 */
+  --color-civilian: #3b82f6; /* blue-500 */
+  --color-science: #22c55e; /* green-500 */
+  --color-commercial: #facc15; /* yellow-400 */
+  --color-guilds: #a855f7; /* purple-500 */
+  --color-leaders: #f8fafc; /* slate-50 */
+  --color-cities: #1e293b; /* slate-800 */
+  --color-armada: #0284c7; /* sky-600 */
+}
+
+@layer base {
+  html {
+    font-size: 20px; /* Zoom base de la app al 125% para compensar la fuente condensada */
+  }
+  body {
+    @apply bg-parchment-100 text-parchment-950;
+    /* Adding a subtle texture effect using a data URI or just sticking to solid colors for now */
+  }
+
+  /* Ocultar el botón gigante de "Play" nativo en videos de fondo en Android/iOS */
+  video::-webkit-media-controls {
+    display: none !important;
+}
+  video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none;
+  }
+}
